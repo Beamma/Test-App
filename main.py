@@ -9,15 +9,16 @@ def log():
 
 @app.route('/', methods = ['POST'])
 def login():
-    password = []
     user_name = request.form['username']
-    password.append(request.form['password'])
+    password = request.form['password']
     conn = sqlite3.connect('users.db')
     c = conn.cursor()
     c.execute("SELECT password FROM users where user=?",(user_name,))
-    dpassword = c.fetchall()
+    for i in c.fetchall():
+        for j in i:
+            dpassword = j
     conn.close()
-    print(dpassword[0])
+    print(dpassword)
     print(password)
     if dpassword == password:
         print("correct")

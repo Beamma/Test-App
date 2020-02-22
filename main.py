@@ -39,7 +39,7 @@ def home():
     logstatus = 'false'
     logstatus = session.get('logstatus', None)
     if logstatus == "true":
-        return render_template("home.html")
+        return render_template("home.html", admin = "Admin")
     else:
         return redirect(url_for('login'))
 

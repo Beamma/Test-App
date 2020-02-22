@@ -1,0 +1,90 @@
+html, body{
+    margin: 0;/*get rid of "borders"*/
+    padding: 0;
+    height: 100%;/*set height to full heigh of screen*/
+    width: 100%; /*set width to full width of screen*/
+    scroll-behavior: smooth; /* makes anchors scroll smooth */
+}
+
+.container {
+    margin: auto;
+    height: 100vh;
+    width: 100%;
+    scroll-behavior: smooth;
+    background: url(https://h7f7z2r7.stackpathcdn.com/sites/default/files/images/articles/americold_3.jpg);
+    background-position: center; /*center backround*/
+    background-repeat: no-repeat; /*dont repeat image (only 1)*/
+    background-size: cover; /*cover full screen*/
+    background-attachment: fixed;
+    display: table;
+    top: 0;
+}
+
+
+.box {
+    margin: auto;
+    margin-top: 10%;
+    margin-bottom: 10%;
+    vertical-align: middle;
+    background-color: rgba(255, 165, 0, 0.7);
+    height: 60vh;
+    width: 50%;
+    border-radius: 10%;
+}
+.box input{
+    border: 1px solid rgba(128, 128, 128, 0.699);
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+.box img {
+    width: 70%;
+    margin: 15%;
+    margin-top: 0px;
+    margin-bottom: 0px;
+}
+
+.box .username {
+    width: 50%;
+    margin: auto;
+    margin-top: 5%;
+  }
+
+.box .username input {
+  border: 0px;
+  height: 5vh;
+  width: 100%;
+  font-size: 30px;
+  text-align: center;
+}
+
+.box .password {
+    width: 50%;
+    margin: auto;
+    margin-top: 5%;
+}
+
+.box .password input {
+  border: 0px;
+  height: 5vh;
+  width: 100%;
+  font-size: 30px;
+  text-align: center;
+}
+
+.box .submit {
+    width: 30%;
+    margin: auto;
+    margin-top: 5%;
+}
+
+.box .submit input {
+  border: 0px;
+  height: 5vh;
+  width: 100%;
+  font-size: 30px;
+  text-align: center;
+  color: green;
+  color: #dc9b04;
+  background: #97ccd8;
+}

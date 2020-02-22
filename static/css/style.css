@@ -88,3 +88,50 @@ html, body{
   color: #dc9b04;
   background: #97ccd8;
 }
+
+.whole {
+	margin: auto;
+	height: 90vh;
+	width: 100%;
+	scroll-behavior: smooth;
+	background: url("https://www.americold.com/wp-content/uploads/2018/10/Banner-About-2.jpg");
+	background-position: center; /*center backround*/
+    background-repeat: no-repeat; /*dont repeat image (only 1)*/
+    background-size: cover; /*cover full screen*/
+	background-attachment: fixed;
+	display: table;
+	top: 0;
+}
+
+.whole .title {
+	text-align: center;
+	vertical-align: center;
+	margin: 30%;
+	width: 40%;
+}
+
+.wrapper nav {
+	background-color: black;
+	font-size: 100%;
+	margin: 0px;
+	width: 100%;
+	overflow: hidden; /*no x scroll bard*/
+	height: 7vh;
+}
+
+.wrapper nav img {
+	height: 4vh;
+	padding-top: 0.5%
+}
+
+.wrapper nav a {
+	text-decoration: none;
+	color: rgb(201, 201, 201);
+	font-family: "Roboto", sans-serif; /*set font*/
+	padding: 2.5%;
+	font-size: 150%;
+}
+
+.wrapper nav a:hover {
+  background: grey;
+}

@@ -9,6 +9,7 @@ sess = Session()
 
 @app.route('/')
 def log():
+    session['logstatus'] = 'false'
     return render_template("login.html")
 
 @app.route('/', methods = ['POST'])

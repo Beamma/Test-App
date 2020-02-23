@@ -50,6 +50,17 @@ def home():
     else:
         return redirect(url_for('login'))
 
+@app.route('/admin')
+def admin():
+    logstatus = 'false'
+    xadmin = session.get('xadmin', None)
+    logstatus = session.get('logstatus', None)
+    if logstatus == "true" and xadmin == "Admin":
+        return render_template("admin.html")
+    if logstatus == "true" and xadmin != "Admin":
+        return redirect(url_for('home'))
+    else:
+        return redirect(url_for('login'))
 
 if __name__ == "__main__":
     app.run(debug=True)

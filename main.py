@@ -14,6 +14,8 @@ def log():
 
 @app.route('/', methods = ['POST'])
 def login():
+    admin = ''
+    dpassword = ''
     session['logstatus'] = 'false'
     user_name = request.form['username']
     password = request.form['password']
@@ -23,23 +25,28 @@ def login():
     for i in c.fetchall():
         for j in i:
             dpassword = j
+    c.execute("SELECT admin From users where user=?",(user_name,))
+    for i in c.fetchall():
+        for q in i:
+            admin = q
+    print(admin)
     conn.close()
-    print(dpassword)
-    print(password)
+    session['xadmin'] = admin
     if dpassword == password:
-        print("correct")
         session['logstatus'] = 'true'
         return redirect(url_for('home'))
     else:
-        print("failed")
         return render_template("login.html")
 
 @app.route('/home')
 def home():
     logstatus = 'false'
+    xadmin = session.get('xadmin', None)
     logstatus = session.get('logstatus', None)
-    if logstatus == "true":
+    if logstatus == "true" and xadmin == "Admin":
         return render_template("home.html", admin = "Admin")
+    if logstatus == "true" and xadmin != "Admin":
+        return render_template("home.html")
     else:
         return redirect(url_for('login'))
 

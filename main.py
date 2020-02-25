@@ -18,6 +18,7 @@ def login():
     dpassword = ''
     session['logstatus'] = 'false'
     user_name = request.form['username']
+    session['user'] = user_name
     password = request.form['password']
     conn = sqlite3.connect('users.db')
     c = conn.cursor()
@@ -43,12 +44,21 @@ def home():
     logstatus = 'false'
     xadmin = session.get('xadmin', None)
     logstatus = session.get('logstatus', None)
-    if logstatus == "true" and xadmin == "Admin":
-        return render_template("home.html", admin = "Admin")
-    if logstatus == "true" and xadmin != "Admin":
-        return render_template("home.html", admin = "False")
+    if logstatus == "true":
+        conn = sqlite3.connect('users.db')
+        c = conn.cursor()
+        c.execute("SELECT user, post FROM notices")
+        posts = c.fetchall()
+        print(posts)
+        conn.close()
+
+        if xadmin == "Admin":
+            return render_template("home.html", admin = "Admin", posts = posts)
+        else:
+            return render_template("home.html", admin = "False", posts = posts)
     else:
         return redirect(url_for('login'))
+
 
 @app.route('/admin')
 def admin():
@@ -61,6 +71,24 @@ def admin():
         return redirect(url_for('home'))
     else:
         return redirect(url_for('login'))
+
+@app.route('/admin', methods = ['POST'])
+def post_admin():
+    post_db = []
+    conn = sqlite3.connect('users.db')
+    c = conn.cursor()
+    c.execute("SELECT id from users WHERE user=?", (session.get('user', None),))
+    for i in c.fetchall():
+        for j in i:
+            user_id = j
+    post_db.insert(1, user_id)
+    post_db.insert(2, request.form['post'])
+    sql = "INSERT INTO notices(user, post) VALUES(?,?)"
+    val = post_db
+    c.execute(sql, val)
+    conn.commit()
+    conn.close()
+    return render_template('admin.html')
 
 
 if __name__ == "__main__":

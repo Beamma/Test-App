@@ -1,11 +1,8 @@
 <nav>
   <img src = "https://www.americold.com/wp-content/uploads/2019/03/Americold-AOS-Logo-edit-e1552742278261.png" alt = "Logo">
-  <a href = "{{url_for('home')}}"> Home </a>
-  <a href = "{{ url_for('login')}}">Log Out</a>
+  <a href = "{{ url_for('home') }}"> Home </a>
+  <a href = "{{ url_for('login') }}">Log Out</a>
   {% if admin == "Admin" %}
-  <a id = "p1" href = "{{ url_for('admin')}}"></a>
+  <a href = "{{ url_for('admin') }}">Admin</a>
   {% endif %}
-  <script type="text/javascript">
-      document.getElementById("p1").innerHTML = "{{admin}}";
-  </script>
 </nav>

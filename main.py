@@ -43,8 +43,10 @@ def home():
     logstatus = 'false'
     xadmin = session.get('xadmin', None)
     logstatus = session.get('logstatus', None)
-    if logstatus == "true":
+    if logstatus == "true" and xadmin == "Admin":
         return render_template("home.html", admin = "Admin")
+    if logstatus == "true" and xadmin != "Admin":
+        return render_template("home.html", admin = "False")
     else:
         return redirect(url_for('login'))
 
@@ -59,6 +61,7 @@ def admin():
         return redirect(url_for('home'))
     else:
         return redirect(url_for('login'))
+
 
 if __name__ == "__main__":
     app.run(debug=True)

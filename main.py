@@ -43,10 +43,8 @@ def home():
     logstatus = 'false'
     xadmin = session.get('xadmin', None)
     logstatus = session.get('logstatus', None)
-    if logstatus == "true" and xadmin == "Admin":
+    if logstatus == "true":
         return render_template("home.html", admin = "Admin")
-    if logstatus == "true" and xadmin != "Admin":
-        return render_template("home.html")
     else:
         return redirect(url_for('login'))
 

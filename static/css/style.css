@@ -146,10 +146,35 @@ html, body{
   display: hidden;
 }
 
+.content h1 {
+  font-family: "Roboto", sans-serif;
+  font-size: 300%;
+  color: black;
+  text-align: center;
+}
+
+.notices {
+  overflow-y: scroll;
+  overflow-x: hidden;
+  height: 50vh;
+  text-align: left;
+}
+
 .post {
 margin: 5%;
 border-radius: 20px;
 background: rgb(201, 201, 201);
-text-align: center;
-width: 1005;
+}
+
+.post p {
+  margin: 0px;
+  padding: 2%;
+}
+
+.post h1 {
+  margin: 0px;
+  padding: 2%;
+  font-family: "Roboto", sans-serif;
+  color: orange;
+  text-align: left;
 }

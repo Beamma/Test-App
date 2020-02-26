@@ -7,15 +7,20 @@
 	</div>
 </div>
 <div class = "content">
-</div>
-{% for i in posts %}
-<div class = "post">
-	<div class = "user">
-		{{i[0]}}
+	<h1> NOTICES </h1>
+	<hr>
+	<div class = "notices">
+		{% for i in posts %}
+		<div class = "post">
+			<div class = "user">
+				<h1> {{i[0]}} </h1>
+			</div>
+			<div class = "notice">
+			<p>	{{i[1]}} </p>
+			</div>
+		</div>
+		{% endfor %}
+		<hr>
 	</div>
-	<div class = "notice">
-		{{i[1]}}
-	</div>
 </div>
-{% endfor %}
 {% endblock %}

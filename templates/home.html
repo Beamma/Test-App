@@ -12,11 +12,14 @@
 	<div class = "notices">
 		{% for i in posts %}
 		<div class = "post">
+			<div class = "title_submit">
+				<h1> {{i[2]}} </h1>
+			</div>
 			<div class = "user">
-				<h1> {{i[0]}} </h1>
+				<h2> {{i[0]}} </h2>
 			</div>
 			<div class = "notice">
-			<p>	{{i[1]}} </p>
+				<p>	{{i[1]}} </p>
 			</div>
 		</div>
 		{% endfor %}

@@ -168,13 +168,20 @@ background: rgb(201, 201, 201);
 
 .post p {
   margin: 0px;
-  padding: 2%;
+  padding: 1%;
 }
 
 .post h1 {
   margin: 0px;
-  padding: 2%;
+  padding: 1%;
   font-family: "Roboto", sans-serif;
   color: orange;
+  text-align: left;
+}
+.post h2 {
+  margin: 0px;
+  padding: 1%;
+  font-family: "Roboto", sans-serif;
+  color: black;
   text-align: left;
 }

@@ -48,7 +48,7 @@ def home():
     if logstatus == "true":
         conn = sqlite3.connect('users.db')
         c = conn.cursor()
-        c.execute("SELECT name, post FROM notices")
+        c.execute("SELECT name, post, title FROM notices")
         posts = c.fetchall()
         conn.close()
         if xadmin == "Admin":
@@ -85,7 +85,8 @@ def post_admin():
     post_db.insert(1, user_id)
     post_db.insert(2, request.form['post'])
     post_db.insert(3, name)
-    sql = "INSERT INTO notices(user, post, name) VALUES(?,?,?)"
+    post_db.insert(4, request.form['title'])
+    sql = "INSERT INTO notices(user, post, name, title) VALUES(?,?,?,?)"
     val = post_db
     conn = sqlite3.connect('users.db')
     c = conn.cursor()

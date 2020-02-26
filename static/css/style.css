@@ -107,7 +107,13 @@ html, body{
 	text-align: center;
 	vertical-align: center;
 	margin: 30%;
-	width: 40%;
+  margin-top: 20%;
+}
+
+.whole .title p {
+  font-family: "Roboto", sans-serif;
+  font-size: 500%;
+  text-align: center;
 }
 
 .wrapper nav {
@@ -138,4 +144,12 @@ html, body{
 
 .wrapper nav #p1 {
   display: hidden;
+}
+
+.post {
+margin: 5%;
+border-radius: 20px;
+background: rgb(201, 201, 201);
+text-align: center;
+width: 1005;
 }

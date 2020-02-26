@@ -3,12 +3,19 @@
 {% block content %}
 <div class= "whole">
 	<div class = "title">
-		<h1> Americold </h1>
+		<p> Americold </p>
 	</div>
 </div>
 <div class = "content">
 </div>
 {% for i in posts %}
-{{posts}}
+<div class = "post">
+	<div class = "user">
+		{{i[0]}}
+	</div>
+	<div class = "notice">
+		{{i[1]}}
+	</div>
+</div>
 {% endfor %}
 {% endblock %}

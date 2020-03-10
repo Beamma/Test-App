@@ -15,5 +15,12 @@
     </form>
   </div>
 </div>
-{{post}}
+{% for i in posts %}
+<div class = "preview_post">
+  {{i[2]}}
+  {{i[0]}}
+  {{i[1]}}
+  <input type = "submit" value = "delete">
+</div>
+{% endfor %}
 {% endblock %}

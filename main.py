@@ -65,7 +65,12 @@ def admin():
     xadmin = session.get('xadmin', None)
     logstatus = session.get('logstatus', None)
     if logstatus == "true" and xadmin == "Admin":
-        return render_template("admin.html")
+        conn = sqlite3.connect('users.db')
+        c = conn.cursor()
+        c.execute("SELECT name, post, title FROM notices")
+        posts = c.fetchall()
+        conn.close()
+        return render_template("admin.html", posts = posts)
     if logstatus == "true" and xadmin != "Admin":
         return redirect(url_for('home'))
     else:
